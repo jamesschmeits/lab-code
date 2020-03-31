@@ -53,7 +53,6 @@ def csv_work(data_file):
         # make a single list of all the data fields
         for one_line in list(data_reader):
             data.extend(one_line)
-        print(data)
     with open(template_file, newline='') as template_handle:
         template_reader = csv.reader(template_handle)
         template = []
@@ -63,13 +62,16 @@ def csv_work(data_file):
     # pair the template fields to the data fields
     paired_list = list(zip(template, data))
     # populate lists with positive and negative data
-    positive_list = []
-    negative_list = []
-    for identity, value in paired_list:
-        if identity == 'positive':
-            positive_list.append(float(value))
-        elif identity == 'negative':
-            negative_list.append(float(value))
+    positive_list = [
+        float(value)
+        for identity, value in paired_list
+        if identity == 'positive'
+    ]
+    negative_list = [
+        float(value)
+        for identity, value in paired_list
+        if identity == 'negative'
+    ]
     zprime = zprime_calc(positive_list, negative_list)
     return zprime
 
