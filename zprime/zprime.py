@@ -53,6 +53,7 @@ def csv_work(data_file):
         # make a single list of all the data fields
         for one_line in list(data_reader):
             data.extend(one_line)
+        print(data)
     with open(template_file, newline='') as template_handle:
         template_reader = csv.reader(template_handle)
         template = []
