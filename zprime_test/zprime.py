@@ -30,23 +30,23 @@ def main():
         after = dict([(f, None) for f in os.listdir(path_to_watch)])
         added = [f for f in after if f not in before]
         if added:
-            zprime_num = str(csv_work(added))
-            print(added, zprime_num)
-            with open(
-                'zprime_log.txt',
-                mode='a',
-                encoding='utf-8'
-            ) as output_file:
-                value = added[0], zprime_num
-                output_file.write(str(value))
-                output_file.write('\n')
+            for file in added:
+                zprime_num = str(csv_work(file))
+                print(file, zprime_num)
+                with open(
+                    'zprime_log.txt',
+                    mode='a',
+                    encoding='utf-8'
+                ) as output_file:
+                    value = file, zprime_num
+                    output_file.write(str(value))
+                    output_file.write('\n')
         before = after
 
 
 def csv_work(data_file):
-    """Main program for opening and closing files,
-    extracting data and calling zprime"""
-    file = path_to_watch + data_file[0]
+    """Open and close files, extract data and call zprime"""
+    file = path_to_watch + data_file
     with open(file, newline='') as data_handle:
         data_reader = csv.reader(data_handle)
         data = []

@@ -1,0 +1,5 @@
+# ignore all .csv files
+*.csv
+
+# but do tack the template file
+!template.csv
