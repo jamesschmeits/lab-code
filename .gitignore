@@ -1,5 +1,8 @@
 # ignore all .csv files
 *.csv
 
-# but do tack the template file
+# but do track the template file
 !template.csv
+
+# ignore any files in the zprime_test directory
+zprime_test/

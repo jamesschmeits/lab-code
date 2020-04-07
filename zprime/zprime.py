@@ -1,5 +1,3 @@
-"""Program for determining Zprime from a csv data file."""
-# import sys
 import csv
 from statistics import stdev
 import os
@@ -20,13 +18,15 @@ def zprime_calc(positive_list, negative_list):
 
 
 def main():
-    """Main program will watch for new files
-    and then pass them to csv_work, getting back
-    zprime values to write to a new file."""
-    # path_to_watch = '.'
+    """Main program will watch for new files and then pass them
+    to csv_work, getting back zprime values to write to a new file.
+    Directory to monitor is the path_to_watch value, specified
+    at the top of the code, but should eventually be specified by
+    the user (in the argument string, perhaps).
+    Directory is monitored every five seconds."""
     before = dict([(f, None) for f in os.listdir(path_to_watch)])
     while 1:
-        time.sleep(5)
+        time.sleep(5)  # monitor time
         after = dict([(f, None) for f in os.listdir(path_to_watch)])
         added = [f for f in after if f not in before]
         if added:
