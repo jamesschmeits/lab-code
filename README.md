@@ -1,4 +1,4 @@
-# lab-code
+# lab-python
 Useful code for laboratory operations and biological modeling.  Code will generally be for data analysis of screening projects, but will also be for modeling other biological processes.
 
 List of current code and descriptions:
